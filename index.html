@@ -432,5 +432,134 @@ footer {
 </footer>
     
 </body>
-  <img src="logo.png" alt="Sai Nakshatra Logo" style="width:120px; height:auto; display:block; margin:20px auto;">         
+  <img src="logo.png" alt="Sai Nakshatra Logo" style="width:120px; height:auto; display:block; margin:20px auto;">   
+    <section id="birth-details">
+  <div class="stars"></div>
+
+  <div class="birth-card">
+    <div class="planet">✦</div>
+
+    <h1>Discover Your Path</h1>
+    <p class="subtitle">
+      Enter your birth details to begin your personalized Sai Nakshatra journey.
+    </p>
+
+    <div class="form-group">
+      <label for="fullName">Your Name</label>
+      <input
+        type="text"
+        id="fullName"
+        placeholder="Enter your name"
+        autocomplete="name"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="birthTime">Birth Time</label>
+        <input type="time" id="birthTime">
+      </div>
+
+      <div class="form-group">
+        <label for="birthPlace">Birth Place</label>
+        <input
+          type="text"
+          id="birthPlace"
+          placeholder="City"
+          autocomplete="address-level2"
+        >
+      </div>
+    </div>
+
+    <button class="continue-btn" onclick="startJourney()">
+      Continue
+      <span>→</span>
+    </button>
+
+    <p id="detailsMessage"></p>
+  </div>
+</section>
+
+<style>
+#birth-details {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 40px 20px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(75, 40, 140, 0.45), transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(20, 100, 170, 0.35), transparent 35%),
+    linear-gradient(135deg, #030014, #08052b 50%, #020617);
+  color: white;
+}
+
+#birth-details::before,
+#birth-details::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    40px 80px white,
+    120px 160px #b9d7ff,
+    210px 60px white,
+    300px 220px #fff,
+    400px 100px #c9e7ff,
+    520px 180px white,
+    650px 70px #fff,
+    760px 240px #c9e7ff,
+    850px 120px white,
+    930px 300px white,
+    1050px 80px #b9d7ff,
+    1150px 220px white,
+    1250px 100px white,
+    80px 400px #fff,
+    190px 520px white,
+    340px 450px #c9e7ff,
+    500px 560px white,
+    700px 430px white,
+    900px 540px #b9d7ff,
+    1100px 450px white,
+    1220px 580px white;
+  animation: twinkle 3s infinite alternate;
+}
+
+#birth-details::after {
+  transform: translateY(40px);
+  opacity: 0.6;
+  animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.birth-card {
+  position: relative;
+  z-index: 2;
+  width: min(560px, 100%);
+  padding: 42px 34px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 28px;
+  background: rgba(10, 8, 35, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+ 
 </html>
