@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sai Nakshatra AI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #050816;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 18px;
+      text-align: center;
+      border-bottom: 1px solid #252a45;
+      background: #090d22;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #4da6ff;
+    }
+
+    header p {
+      color: #aaa;
+      margin-top: 5px;
+      font-size: 13px;
+    }
+
+    #chat {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 12px 15px;
+      margin-bottom: 14px;
+      border-radius: 16px;
+      line-height: 1.5;
+    }
+
+    .ai {
+      background: #151b35;
+      margin-right: auto;
+    }
+
+    .user {
+      background: #1769aa;
+      margin-left: auto;
+    }
+
+    .input-area {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      background: #090d22;
+      border-top: 1px solid #252a45;
+    }
+
+    input {
+      flex: 1;
+      padding: 13px;
+      border: none;
+      outline: none;
+      border-radius: 25px;
+      background: #171c32;
+      color: white;
+      font-size: 15px;
+    }
+
+    button {
+      border: none;
+      border-radius: 25px;
+      padding: 0 20px;
+      background: #4da6ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>✨ Sai Nakshatra AI</h1>
+    <p>Your guide for exploring your future</p>
+  </header>
+
+  <div id="chat">
+    <div class="message ai">
+      👋 Welcome to Sai Nakshatra!<br><br>
+      I'm here to help you explore your possibilities and find direction.
+      Ask me anything.
+    </div>
+  </div>
+
+  <div class="input-area">
+    <input
+      type="text"
+      id="messageInput"
+      placeholder="Ask Sai Nakshatra..."
+      onkeydown="if(event.key==='Enter') sendMessage()"
+    >
+
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("messageInput");
+      const chat = document.getElementById("chat");
+
+      const message = input.value.trim();
+
+      if (message === "") return;
+
+      const userMessage = document.createElement("div");
+      userMessage.className = "message user";
+      userMessage.textContent = message;
+
+      chat.appendChild(userMessage);
+
+      input.value = "";
+
+      setTimeout(() => {
+        const aiMessage = document.createElement("div");
+        aiMessage.className = "message ai";
+
+        aiMessage.textContent =
+          "Thanks for sharing that. ✨ The Sai Nakshatra AI will be connected here soon, so it can give you a personalized response.";
+
+        chat.appendChild(aiMessage);
+        chat.scrollTop = chat.scrollHeight;
+      }, 600);
+
+      chat.scrollTop = chat.scrollHeight;
+    }
+  </script>
+
+</body>
+    </html>
