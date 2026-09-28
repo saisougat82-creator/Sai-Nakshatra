@@ -160,7 +160,7 @@
     const country = localStorage.getItem("birthCountry");
     const state = localStorage.getItem("birthState");
     const place = localStorage.getItem("birthPlace");
-
+console.log("Birth data:", name, date, time, country, state, place);
     document.getElementById("userName").textContent = name || "—";
     document.getElementById("userDate").textContent = date || "—";
     document.getElementById("userTime").textContent = time || "—";
