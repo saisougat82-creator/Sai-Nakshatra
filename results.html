@@ -148,6 +148,32 @@
     </button>
 
 </div>
+<script>
+    const name = localStorage.getItem("birthName");
+    const date = localStorage.getItem("birthDate");
+    const time = localStorage.getItem("birthTime");
+    const country = localStorage.getItem("birthCountry");
+    const state = localStorage.getItem("birthState");
+    const place = localStorage.getItem("birthPlace");
 
+    document.getElementById("userName").textContent = name || "—";
+    document.getElementById("userDate").textContent = date || "—";
+    document.getElementById("userTime").textContent = time || "—";
+
+    if (place && state && country) {
+        document.getElementById("userPlace").textContent =
+            place + ", " + state + ", " + country;
+    } else {
+        document.getElementById("userPlace").textContent = "—";
+    }
+
+    if (name) {
+        document.getElementById("welcomeMessage").textContent =
+            "Welcome, " + name + ". Your reading is being prepared.";
+    }
+</script>
+
+</body>
+</html>
 </body>
 </html>
