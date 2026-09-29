@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Sai Nakshatra - Your Results</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -14,13 +16,14 @@
         body {
             margin: 0;
             min-height: 100vh;
+            padding: 25px;
             font-family: Arial, sans-serif;
             color: white;
+
             background:
                 radial-gradient(circle at 20% 20%, #29306b 0, transparent 25%),
                 radial-gradient(circle at 80% 70%, #172d5c 0, transparent 30%),
                 linear-gradient(135deg, #050816, #0b1230, #03050d);
-            padding: 25px;
         }
 
         .container {
@@ -61,158 +64,36 @@
             font-weight: bold;
         }
 
-        .chart {
-            height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed rgba(255,255,255,0.3);
-            border-radius: 18px;
-            color: #bfc9e8;
-            text-align: center;
-        }
-
-        .note {
-            color: #aeb9d8;
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
         .back-btn {
             width: 100%;
             padding: 15px;
             border: none;
             border-radius: 30px;
+
             background: linear-gradient(90deg, #4facfe, #00f2fe);
+
             color: #06101f;
             font-size: 16px;
             font-weight: bold;
         }
+
     </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<div class="header">
-    <h1>✨ Your Sai Nakshatra Reading</h1>
-    <p id="welcomeMessage">Preparing your reading...</p>
-</div>
+    <div class="header">
 
-<div class="card">
-    <h2>👤 Birth Details</h2>
+        <h1>✨ Your Sai Nakshatra Reading</h1>
 
-    <p><strong>Name:</strong> <span id="userName">—</span></p>
-    <p><strong>Date:</strong> <span id="userDate">—</span></p>
-    <p><strong>Time:</strong> <span id="userTime">—</span></p>
-    <p><strong>Place:</strong> <span id="userPlace">—</span></p>
-</div>
-
-<div class="card">
-    <h2>🌙 Rashi</h2>
-    <div class="value" id="rashiValue">Calculating...</div>
-</div>
-
-    <div class="card">
-        <h2>⭐ Nakshatra</h2>
-        <div class="value">Calculating...</div>
-    </div>
-
-    <div class="card">
-        <h2>🔭 Ascendant / Lagna</h2>
-        <div class="value">Calculating...</div>
-    </div>
-
-    <div class="card">
-        <h2>🪐 Birth Chart</h2>
-
-        <div class="chart">
-            Birth chart will appear here
-            after the astrology calculation system
-            is connected.
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>✨ Horoscope</h2>
-
-        <p class="note">
-            Your personalized horoscope will appear here
-            after the birth details are calculated.
+        <p id="welcomeMessage">
+            Preparing your reading...
         </p>
+
     </div>
 
-    <button class="back-btn" onclick="history.back()">
-        ← Back
-    </button>
 
-</div>
-
-    <script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
-<script src="./astrology-engine.js"></script>
-
-<script>
-    alert("RESULTS SCRIPT STARTED");
-    const name = localStorage.getItem("birthName");
-    const date = localStorage.getItem("birthDate");
-    const time = localStorage.getItem("birthTime");
-    const country = localStorage.getItem("birthCountry");
-    const state = localStorage.getItem("birthState");
-    const place = localStorage.getItem("birthPlace");
-    const birthDateTime = new Date(date + "T" + time);
-    alert("Date: " + date + "\nTime: " + time);
-console.log("Birth data:", name, date, time, country, state, place);
-    document.getElementById("userName").textContent = name || "—";
-    document.getElementById("userDate").textContent = date || "—";
-    document.getElementById("userTime").textContent = time || "—";
-
-    if (place && state && country) {
-        document.getElementById("userPlace").textContent =
-            place + ", " + state + ", " + country;
-    } else {
-        document.getElementById("userPlace").textContent = "—";
-    }
-
-    if (name) {
-        document.getElementById("welcomeMessage").textContent =
-            "Welcome, " + name + ". Your reading is being prepared.";
-    }
-    // your existing code...
-// Real Moon longitude calculation
-
-function getMoonLongitude(date) {
-    console.log("Astronomy loaded:", typeof Astronomy);
-
-    const moon = Astronomy.EclipticGeoMoon(date);
-
-    console.log("Moon calculation:", moon);
-
-    return moon.elon;
-}
-// Rashi calculation connection
-const rashiValue = document.getElementById("rashiValue");
-
-if (rashiValue) {
-    try {
-        console.log("Birth DateTime:", birthDateTime);
-        console.log("Valid date:", !isNaN(birthDateTime.getTime()));
-        console.log("Astronomy loaded:", typeof Astronomy);
-
-        const moonLongitude = getMoonLongitude(birthDateTime);
-
-        console.log("Moon longitude:", moonLongitude);
-
-        const result = calculateMoonRashi(moonLongitude);
-
-        rashiValue.textContent = result.rashi;
-
-    } catch (error) {
-        console.error("Rashi calculation error:", error);
-        rashiValue.textContent = "Error: " + error.message;
-    }
-}
-
-</script>
-</body>
-</html>
+    <!-- BIRTH DETAILS -->
