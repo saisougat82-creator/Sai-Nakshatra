@@ -176,7 +176,11 @@ console.log("Birth data:", name, date, time, country, state, place);
             "Welcome, " + name + ". Your reading is being prepared.";
     }
     // your existing code...
-
+// Real Moon longitude calculation
+function getMoonLongitude(date) {
+    const moon = Astronomy.EclipticGeoMoon(date);
+    return moon.elon;
+}
 // Rashi calculation connection
 const rashiValue = document.getElementById("rashiValue");
 
