@@ -39,3 +39,16 @@ function calculateRashiFromMoonLongitude(moonLongitude) {
 
     return getVedicRashi(normalized);
 }
+function calculateMoonRashi(moonLongitude) {
+
+    const normalized = normalizeLongitude(moonLongitude);
+    const rashi = getVedicRashi(normalized);
+
+    const rashiIndex = Math.floor(normalized / 30);
+
+    return {
+        moonLongitude: normalized,
+        rashi: rashi,
+        rashiNumber: rashiIndex + 1
+    };
+}
