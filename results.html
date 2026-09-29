@@ -178,8 +178,14 @@ console.log("Birth data:", name, date, time, country, state, place);
     }
     // your existing code...
 // Real Moon longitude calculation
+
 function getMoonLongitude(date) {
+    console.log("Astronomy loaded:", typeof Astronomy);
+
     const moon = Astronomy.EclipticGeoMoon(date);
+
+    console.log("Moon calculation:", moon);
+
     return moon.elon;
 }
 // Rashi calculation connection
