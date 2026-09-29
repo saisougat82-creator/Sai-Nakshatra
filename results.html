@@ -159,6 +159,7 @@
     const country = localStorage.getItem("birthCountry");
     const state = localStorage.getItem("birthState");
     const place = localStorage.getItem("birthPlace");
+    const birthDateTime = new Date(date + "T" + time);
 console.log("Birth data:", name, date, time, country, state, place);
     document.getElementById("userName").textContent = name || "—";
     document.getElementById("userDate").textContent = date || "—";
