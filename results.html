@@ -181,7 +181,11 @@ console.log("Birth data:", name, date, time, country, state, place);
 const rashiValue = document.getElementById("rashiValue");
 
 if (rashiValue) {
-    rashiValue.textContent = "Calculation system ready 🪐";
+    const moonLongitude = 74.5; // temporary test value
+
+    const result = calculateMoonRashi(moonLongitude);
+
+    rashiValue.textContent = result.rashi;
 }
 
 </script>
