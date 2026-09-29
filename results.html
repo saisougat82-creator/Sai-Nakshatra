@@ -192,12 +192,24 @@ function getMoonLongitude(date) {
 const rashiValue = document.getElementById("rashiValue");
 
 if (rashiValue) {
-    const moonLongitude = getMoonLongitude(birthDateTime);
+    try {
+        console.log("Birth DateTime:", birthDateTime);
+        console.log("Valid date:", !isNaN(birthDateTime.getTime()));
+        console.log("Astronomy loaded:", typeof Astronomy);
 
-    const result = calculateMoonRashi(moonLongitude);
+        const moonLongitude = getMoonLongitude(birthDateTime);
 
-    rashiValue.textContent = result.rashi;
-}
+        console.log("Moon longitude:", moonLongitude);
+
+        const result = calculateMoonRashi(moonLongitude);
+
+        rashiValue.textContent = result.rashi;
+
+    } catch (error) {
+        console.error("Rashi calculation error:", error);
+        rashiValue.textContent = "Error: " + error.message;
+    }
+
 
 </script>
 </body>
