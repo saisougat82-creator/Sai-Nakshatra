@@ -186,7 +186,7 @@ function getMoonLongitude(date) {
 const rashiValue = document.getElementById("rashiValue");
 
 if (rashiValue) {
-    const moonLongitude = 74.5; // temporary test value
+    const moonLongitude = getMoonLongitude(birthDateTime);
 
     const result = calculateMoonRashi(moonLongitude);
 
